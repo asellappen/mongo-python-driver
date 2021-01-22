@@ -23,7 +23,6 @@ python:
 sudo: required
 services:
   - mongodb
-before_install:
-  - mongod
+
 script: PYMONGO_MUST_CONNECT=1 python setup.py test
 
