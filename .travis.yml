@@ -18,7 +18,7 @@ python:
   #- 3.5
   #- 3.6
   #- 3.7
-  - 3.8
+  #- 3.8
   - pypy3.5
 sudo: required
 services:
@@ -29,5 +29,11 @@ before_install:
        sudo apt-get install -y mongodb;
        sudo service mongod start;
     fi
-  
+jobs:
+    exclude:
+      - arch : ppc64le
+        python :  
+            - "pypy3.5"
+            - "pypy3"
+            
 script: PYMONGO_MUST_CONNECT=1 python setup.py test
