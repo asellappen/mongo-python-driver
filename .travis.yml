@@ -23,6 +23,8 @@ python:
 sudo: required
 services:
   - mongodb
-
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y mongodb-org
+  
 script: PYMONGO_MUST_CONNECT=1 python setup.py test
-
