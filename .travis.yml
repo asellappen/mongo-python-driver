@@ -14,17 +14,18 @@ arch:
   #  - amd64
     - ppc64le
 python:
-  - 3.4
-  - 3.5
-  - 3.6
-  - 3.7
+  #- 3.4
+  #- 3.5
+  #- 3.6
+  #- 3.7
   - 3.8
-  - pypy3.5
+  #- pypy3.5
 sudo: required
 services:
   - mongodb
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y mongodb
+  - sudo service mongod start
   
 script: PYMONGO_MUST_CONNECT=1 python setup.py test
