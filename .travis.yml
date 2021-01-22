@@ -11,7 +11,7 @@
 # ----------------------------------------------------------------------------
 language: python
 arch:
-    - amd64
+  #  - amd64
     - ppc64le
 python:
   - 3.4
@@ -20,9 +20,10 @@ python:
   - 3.7
   - 3.8
   - pypy3.5
-dist: bionic
+sudo: required
 services:
   - mongodb
-
+before_install:
+  - mongod
 script: PYMONGO_MUST_CONNECT=1 python setup.py test
 
